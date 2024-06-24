@@ -1,19 +1,10 @@
 import TcpSocket from 'react-native-tcp-socket'
+import { IP_1, IP_2, IP_3 } from '@env'
 
-export const connectOptions = [
-  {
-    host: '192.168.100.86',
-    port: 5050
-  },
-  {
-    host: '192.168.100.83',
-    port: 5050
-  },
-  {
-    host: '192.168.100.87',
-    port: 5050
-  }
-]
+export const connectOptions = [IP_1, IP_2, IP_3].map((ip) => ({
+  host: ip,
+  port: 5050
+}))
 
 export const clientConnect = (options) => {
   let client = TcpSocket.createConnection(options, () => {
